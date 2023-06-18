@@ -1,0 +1,31 @@
+<section>
+  <div th:fragment="cardLink(id, name, price, description)" class="card">
+    <div class="card-body">
+      <h5 class="card-title" th:text="${name}"></h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary" th:text="${price}"></h6>
+      <p class="card-text" th:text="${description}"></p>
+      <a th:href="@{/product/{id}(id=${id} ,name=${name})}" class="card-link">View</a>
+      <a href="#" class="card-link">Buy</a>
+    </div>
+  </div>
+
+  <div th:fragment="cardImage" class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7_4eeNB3DXLI_5GlVm-TjHXXY8VCnukF0g&usqp=CAU" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  <div th:fragment="cardFeatures" class="card">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</section>

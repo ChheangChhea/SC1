@@ -9,6 +9,8 @@
 <div layout:fragment="webChildLayout">
     <div class="row">
         <div class="col-12">
+            <h1>All Product</h1>
+            <a th:href ="@{/product/form}" class="btn btn-primary mb-2">Create New </a>
             <div class="row g-3">
                 <div class="col-4" th:each="product : ${products}" th:object="${product}">
                     <div th:replace="~{fragments/card :: cardLink(*{id},*{name}, *{price}, *{description})}"></div>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layyouts/webLayout}">
+<head>
+    <title>product</title>
+</head>
+<body>
+<div layout:fragment="webChildLayout">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-4">Create </h1>
+            <form th:action="@{/product/create}" method="post" th:object="${product}">
+
+                <div class="mb-3">
+                    <label  class="form-label">Title</label>
+                    <input th:field="*{name}"  type="text" class="form-control" >
+                </div>
+                <div class="mb-3">
+                   <label for="inputDescription" class="form-label">Description</label>
+                   <input th:field="*{description}" type="text" class="form-control" id="inputDescription">
+                </div>
+                <div class="mb-3">
+                  <label for="inputPrice" class="form-label">Price</label>
+                  <input th:field="*{price}"  type="text" class="form-control" id="inputPrice">
+                </div>
+                <button type="submit" class="btn btn-primary">create</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
+

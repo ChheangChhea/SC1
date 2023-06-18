@@ -1,10 +1,13 @@
 package co.istad.demowebmvc.controller;
 
 import co.istad.demowebmvc.model.Product;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -73,5 +76,21 @@ public ProductController(){
 
         return "product/productDetail";
     }
+    @GetMapping("/product/form")
+ public String viewProductForm(Product product ,ModelMap modelMap){
+    modelMap.addAttribute("product", product);
 
+    return"product/productForm";
+ }
+ @PostMapping("/product/create")
+    public String createProduct(@Valid Product product , BindingResult bindingResult){
+    if(bindingResult.hasErrors()){
+        return "product/productForm";
+    }
+
+
+    product.setId(products.size() +1);
+    products.add(product);
+    return "redirect:/product";
+ }
 }

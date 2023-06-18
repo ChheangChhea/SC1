@@ -12,7 +12,7 @@ import lombok.*;
 public class Product {
 
     private Integer id;
-    @NotBlank
+    @NotBlank(message = "pls fill product")
     @Size(min = 4,max = 30)
     private String name;
     @NotBlank

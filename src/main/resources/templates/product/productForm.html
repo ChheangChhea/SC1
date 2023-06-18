@@ -14,15 +14,22 @@
             <form th:action="@{/product/create}" method="post" th:object="${product}">
 
                 <div class="mb-3">
-                    <label  class="form-label">Title</label>
+                    <label  class="form-label">Name
+                        &nbsp; <span th:if="${#fields.hasErrors('name')}" th:errors="*{name} " class=" text-danger"> </span>
+
+                    </label>
                     <input th:field="*{name}"  type="text" class="form-control" >
                 </div>
                 <div class="mb-3">
-                   <label for="inputDescription" class="form-label">Description</label>
+                   <label for="inputDescription" class="form-label">Description
+                       &nbsp; <span th:if="${#fields.hasErrors('description')}" th:errors="*{description} " class=" text-danger"> </span>
+                   </label>
                    <input th:field="*{description}" type="text" class="form-control" id="inputDescription">
                 </div>
                 <div class="mb-3">
-                  <label for="inputPrice" class="form-label">Price</label>
+                  <label for="inputPrice" class="form-label">Price
+                      &nbsp; <span th:if="${#fields.hasErrors('price')}" th:errors="*{price} " class=" text-danger"> </span>
+                     </label>
                   <input th:field="*{price}"  type="text" class="form-control" id="inputPrice">
                 </div>
                 <button type="submit" class="btn btn-primary">create</button>
